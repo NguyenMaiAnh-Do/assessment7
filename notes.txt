@@ -1,0 +1,31 @@
+Timing Information:
+-------------------
+
+Extra Large Array
+-----------------
+Time to run code with push(): 2.814625 ms
+Time to run code with unshift(): 697.279292 ms
+
+Large Array
+-----------
+Time to run code with push():442.916 μs
+Time to run code with unshift():6.420541 ms
+
+Medium Array
+------------
+Time to run code with push(): 92.625 μs
+Time to run code with unshift():186.208 μs
+
+Small Array
+-----------
+Time to run code with push(): 45.958 μs
+Time to run code with unshift(): 78.625 μs
+
+Tiny Array
+----------
+Time to run code with push(): 40.416 μs
+Time to run code with unshift(): 70.333 μs
+
+4. The timing results reveal a consistent pattern across array sizes: the push() method consistently outperforms the unshift() method in terms of runtime. As the size of the array increases, the time taken by both methods also increases, but unshift() exhibits a significantly steeper increase compared to push(). This indicates that the push() method scales better than unshift() as the size of the array grows. The difference in scaling can be attributed to the internal workings of each method. push() adds elements to the end of the array, which typically involves simpler memory management operations, whereas unshift() inserts elements at the beginning, requiring shifting of existing elements to make space, resulting in more complex and time-consuming operations.
+
+5. For extra credit, the slower performance of the unshift() method can be attributed to its implementation. Unlike push(), which simply appends elements to the end of the array, unshift() needs to insert elements at the beginning of the array. This operation requires shifting existing elements to accommodate the new element, which becomes increasingly costly as the array size grows. Each element in the array needs to be shifted to the next index position, resulting in a time complexity of O(n) for unshift(), where n is the number of elements in the array. On the other hand, push() typically has a time complexity of O(1) because it adds elements to the end of the array, without needing to shift existing elements. Therefore, the unshift() method is slower due to its O(n) time complexity, compared to the O(1) time complexity of push().
